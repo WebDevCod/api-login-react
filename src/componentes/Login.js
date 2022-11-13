@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import md5 from 'md5';
 import Cookies from 'universal-cookie';
@@ -7,7 +7,7 @@ const URL = "http://localhost:3001/usuarios";
 const cookies = new Cookies();
 
 export default function Login() {
-    const [state, setState] = React.useState({
+    const [state, setState] = useState({
         username: '',
         password: ''
     })
@@ -38,7 +38,7 @@ export default function Login() {
                 }
             })
             .catch(error => {
-                console.log();
+                console.error(error);
             })
     }
 
